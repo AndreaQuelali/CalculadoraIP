@@ -6,19 +6,19 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class Fondo extends JPanel{
+public class Background extends JPanel{
        private Image fondo;
        JFrame ventana;
        String img;
        
-       public Fondo(String imagen, JFrame ventana){ 
+       public Background(String imagen, JFrame ventana){ 
            img = imagen;
            this.ventana = ventana;
        }
     @Override
     public void paint(Graphics g){
         try{
-            fondo = new ImageIcon(getClass().getResource("/imagenes/"+img)).getImage();
+            fondo = new ImageIcon(getClass().getResource("/images/"+img)).getImage();
             g.drawImage(fondo,0,0, getWidth(),getHeight(),this);
             setOpaque(false);
             super.paint(g);

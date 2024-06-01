@@ -8,12 +8,12 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.IOException;
 import java.net.URL;
 
-public class Sonido {
+public class Sound {
     Clip clip;
     
     public void reproducirSonido(String son) {
     try {
-        URL url = getClass().getResource("/sonidos/"+son);
+        URL url = getClass().getResource("/sounds/"+son);
         AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(url);
         clip = AudioSystem.getClip();
         clip.open(audioInputStream);
@@ -22,7 +22,7 @@ public class Sonido {
         e.printStackTrace();
     }
     }
-    public void pararSonido() {
+    public void stopSound() {
         if (clip.isRunning() && clip != null) {
             clip.stop();
         }
