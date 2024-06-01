@@ -422,9 +422,9 @@ public class BasicCalculator extends javax.swing.JFrame {
         IPCalculatorModel model = new IPCalculatorModel(address, prefix);
          
         jLabel8.setText("Address: " + address);
-        jLabel9.setText("Netmask: " + model.getNetmask()  + " = 24");
+        jLabel9.setText("Netmask: " + model.getNetmask()  + " = " + prefix);
         jLabel10.setText("Wildcard: " + model.getWildcard());
-        jLabel11.setText("Network: " + model.getNetworkAddress() + " /24");
+        jLabel11.setText("Network: " + model.getNetworkAddress() + " /" + prefix);
         jLabel12.setText("Host Min: " + model.getFirstHostAddress());
         jLabel13.setText("Host Max: " + model.getLastHostAddress());
         jLabel14.setText("Broadcast: " + model.getBroadcastAddress());
