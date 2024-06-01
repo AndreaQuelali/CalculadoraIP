@@ -129,3 +129,4 @@ public class IPCalculatorModel {
         return toBinaryString(wildcard);
     }
 }
+

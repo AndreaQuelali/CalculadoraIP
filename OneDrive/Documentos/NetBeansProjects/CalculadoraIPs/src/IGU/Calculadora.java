@@ -4,6 +4,8 @@
  */
 package IGU;
 
+import model.IPCalculatorModel;
+
 /**
  *
  * @author 
@@ -58,6 +60,7 @@ public class Calculadora extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -164,7 +167,7 @@ public class Calculadora extends javax.swing.JFrame {
                 .addGap(0, 0, 0))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                    .addContainerGap(231, Short.MAX_VALUE)
+                    .addContainerGap(236, Short.MAX_VALUE)
                     .addComponent(jLabel7)
                     .addGap(302, 302, 302)))
         );
@@ -233,7 +236,7 @@ public class Calculadora extends javax.swing.JFrame {
         jLabel1.setText("ADDRESS:");
 
         jTextField1.setFont(new java.awt.Font("Franklin Gothic Book", 0, 18)); // NOI18N
-        jTextField1.setText("Ingresa el address");
+        jTextField1.setText("192.168.0.1");
         jTextField1.setPreferredSize(new java.awt.Dimension(200, 40));
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,14 +253,16 @@ public class Calculadora extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel5)))
-                .addGap(18, 18, 18)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)
+                        .addComponent(jLabel5)
+                        .addGap(39, 39, 39))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)))
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -283,7 +288,7 @@ public class Calculadora extends javax.swing.JFrame {
         jLabel2.setText("NETMASK:");
 
         jTextField2.setFont(new java.awt.Font("Franklin Gothic Book", 0, 18)); // NOI18N
-        jTextField2.setText("Ingresa el netmask");
+        jTextField2.setText("24");
         jTextField2.setPreferredSize(new java.awt.Dimension(200, 40));
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -299,7 +304,7 @@ public class Calculadora extends javax.swing.JFrame {
                 .addGap(14, 14, 14)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -318,7 +323,7 @@ public class Calculadora extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+
                         .addGap(51, 51, 51)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -331,10 +336,11 @@ public class Calculadora extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+
                 .addGap(60, 60, 60)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(172, 172, 172)
@@ -347,6 +353,30 @@ public class Calculadora extends javax.swing.JFrame {
 
     private void calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularActionPerformed
         click.reproducirSonido("click.wav");
+        
+        String address = jTextField1.getText();
+        int prefix = Integer.parseInt(jTextField2.getText());
+        IPCalculatorModel model = new IPCalculatorModel(address, prefix);
+         
+        jLabel8.setText("Address: " + address);
+        jLabel9.setText("Netmask: " + model.getNetmask()  + " = 24");
+        jLabel10.setText("Wildcard: " + model.getWildcard());
+        jLabel11.setText("Network: " + model.getNetworkAddress() + " /24");
+        jLabel12.setText("Host Min: " + model.getFirstHostAddress());
+        jLabel13.setText("Host Max: " + model.getLastHostAddress());
+        jLabel14.setText("Broadcast: " + model.getBroadcastAddress());
+        jLabel23.setText("Hosts/Net: " + model.getNumberOfHosts());
+        
+        
+        jLabel16.setText("Address: " + model.getIpAddressBinary());
+        jLabel17.setText("Netmask: " + model.getNetmaskBinary());
+        jLabel18.setText("Wildcard: " + model.getWildcardBinary());
+        jLabel19.setText("Network: " + model.getNetworkAddressBinary());
+        jLabel20.setText("Host Min: " + model.getFirstHostAddressBinary());
+        jLabel21.setText("Host Max: " + model.getLastHostAddressBinary());
+        jLabel22.setText("Broadcast: " + model.getBroadcastAddressBinary());
+        jLabel15.setText("Hosts/Net: " + "Class C, Private Internet");
+
     }//GEN-LAST:event_calcularActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

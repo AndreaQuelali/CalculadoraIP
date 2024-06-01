@@ -11,13 +11,16 @@ package IGU;
 public class CalculadoraNetmask extends javax.swing.JFrame {
     Fondo fondo = new Fondo("calcuCompu.jpg", this);
      Sonido click = new Sonido();
+
     /**
      * Creates new form CalculadoraNetmask
      */
     public CalculadoraNetmask() {
+
         this.setContentPane(fondo);
         initComponents();
         this.setExtendedState(6);
+
     }
 
     /**
@@ -393,10 +396,12 @@ public class CalculadoraNetmask extends javax.swing.JFrame {
                 .addGap(82, 82, 82))
         );
 
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -442,6 +447,7 @@ public class CalculadoraNetmask extends javax.swing.JFrame {
                 .addComponent(calcular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+
         );
 
         pack();
@@ -470,6 +476,7 @@ public class CalculadoraNetmask extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -541,5 +548,6 @@ public class CalculadoraNetmask extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+
     // End of variables declaration//GEN-END:variables
 }
