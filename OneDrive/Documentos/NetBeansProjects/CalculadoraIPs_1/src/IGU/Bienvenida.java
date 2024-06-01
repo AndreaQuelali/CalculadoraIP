@@ -6,7 +6,7 @@ package IGU;
 
 /**
  *
- * @author 
+ * @author Andrea
  */
 public class Bienvenida extends javax.swing.JFrame {
     Fondo fondo = new Fondo("compu.jpg", this); 

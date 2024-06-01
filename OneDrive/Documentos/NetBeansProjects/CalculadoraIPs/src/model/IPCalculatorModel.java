@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author ivanci
+ * @author 
  */
 public class IPCalculatorModel {
     private String ipAddress;
@@ -129,3 +129,4 @@ public class IPCalculatorModel {
         return toBinaryString(wildcard);
     }
 }
+
